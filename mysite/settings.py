@@ -36,6 +36,7 @@ if not DEBUG:
     import django_heroku
     django_heroku.settings(locals())
 
+
 ALLOWED_HOSTS = []
 
 
@@ -146,3 +147,11 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 MEDIA_URL = '/media/'  # 画像をアップロードするためのurl
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+# カスタムユーザーの設定を追加
+AUTH_USER_MODEL = 'accounts.CustomUser'
+ACCOUNT_AUTHENTICATION_METHOD ="email"
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False

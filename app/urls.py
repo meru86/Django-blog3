@@ -3,8 +3,8 @@ from .views import CallbackView
 from app import views  # viewsをimport
 
 urlpatterns = [
-    path('callback/', CallbackView.as_view(), name='callback'),
     path('', views.IndexView.as_view(), name='index'),  # トップページにアクセスがあった場合にviews.pyのIndexViewを開く
+    path('callback/', CallbackView.as_view(), name='callback'),
     path('post/<int:pk>/', views.PostDetailView.as_view(), name='post_detail'),  # int:pkにはIDが入ります。データを登録すると自動的にIDが割り振られる。どのデータを処理したいのかを特定するためにint:pkにurlを設定する
     path('post/new/', views.CreatedPostView.as_view(), name='post_new'),   # 新規投稿用のurlを追加
     path('post/<int:pk>/edit/', views.PostEditView.as_view(), name='post_edit'),   # 投稿編集用のurlを追加
