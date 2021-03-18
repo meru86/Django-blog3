@@ -10,6 +10,6 @@ urlpatterns = [
     path('post/<int:pk>/edit/', views.PostEditView.as_view(), name='post_edit'),   # 投稿編集用のurlを追加
     path('post/<int:pk>/delete/', views.PostDeleteView.as_view(), name='post_delete'),   # 投稿削除用のurlを追加
     # <str:category>を設定することででカテゴリの名前がurl
-    path('category/<str:category>', views.CategoryView.as_view(), name='category'),   # カテゴリ用のurlを追加
+    path('category/<str:category>/', views.CategoryView.as_view(), name='category'),   # カテゴリ用のurlを追加
     path('search', views.SearchView.as_view(), name='search'),   # 検索用のurlを追加
 ]
