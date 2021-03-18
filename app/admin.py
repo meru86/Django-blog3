@@ -4,4 +4,3 @@ from .models import Post, Category  # modelのPost,Categoryをimport
 
 admin.site.register(Post)  # register関数を使ってmodel(Postクラス)を追加
 admin.site.register(Category)  # register関数を使ってmodel(Categoryクラス)を追加
-
