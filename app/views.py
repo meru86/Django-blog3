@@ -106,6 +106,7 @@ class PostDeleteView(LoginRequiredMixin, View):  # 投稿削除用クラス
         post_data.delete()  # post_dataを削除
         return redirect('index')
 
+
 class CategoryView(View):
     def get(self, request, *args, **kwargs):
         # urlからカテゴリ名を取得し、カテゴリモデルでフィルターをかけてデータを取得
@@ -115,6 +116,7 @@ class CategoryView(View):
         return render(request, 'app/index.html', {  # 指定したテンプレートにpost_dataを渡す
             'post_data' : post_data
         })
+
 
 class SearchView(View):
     def get(self, request, *args, **kwargs):

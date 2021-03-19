@@ -12,6 +12,7 @@ class Category(models.Model):
     def __str__(self):  # str関数を作成することで管理画面で表示される文字列を定義できる
         return self.name
 
+
 class Post(models.Model):
     # [on_delete=models.CASCADE]で参照しているオブジェクトが削除されたら一緒に削除する
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
