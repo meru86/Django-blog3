@@ -13,7 +13,8 @@ class CallbackView(View):
 		def get(self, request, *args, **kwargs):
 				return HttpResponse('OK')
 
-class IndexView(View):  # appのurls.pyに記載するclassを書く(トップページにアクセスがあった時に表示)
+# LoginRequiredMixinを引数に追加することでプロフィールを見るのにログインを必須にする 
+class IndexView(LoginRequiredMixin, View):  # appのurls.pyに記載するclassを書く(トップページにアクセスがあった時に表示)
     def get(self, request, *args, **kwargs):  # 画面が表示されたら呼ばれる 
         post_data = Post.objects.order_by('-id')  # postモデルからデータを取得, order_byで並び替え('-id'で降順)
         return render(request, 'app/index.html', {  # 指定したテンプレートにデータを渡す

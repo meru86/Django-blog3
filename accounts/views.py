@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect
 from allauth.account import views  # allauthaccountのviewsをimport
 from django.views import View
 from accounts.models import CustomUser
-from accounts.forms import ProfileForm
+from accounts.forms import ProfileForm, SignupUserForm
+from allauth.account import views
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 # LoginViewクラスを作成します。引数にallauthのLoginViewを継承させます。
@@ -19,8 +21,9 @@ class LogoutView(views.LogoutView):
 
 class SignupView(views.SignupView):
     template_name = 'accounts/signup.html'
+    form_class = SignupUserForm
 
-class ProfileView(View):
+class ProfileView(LoginRequiredMixin, View):  # LoginRequiredMixinを引数に追加することでプロフィールを見るのにログインを必須にする 
     def get(self, request, *args, **kwargs):
         user_data = CustomUser.objects.get(id=request.user.id)
 
@@ -29,8 +32,7 @@ class ProfileView(View):
         })
 
 
-
-class ProfileEditView(View):
+class ProfileEditView(LoginRequiredMixin, View): # LoginRequiredMixinを引数に追加することでプロフィールを見るのにログインを必須にする 
     def get(self, request, *args, **kwargs):
         user_data = CustomUser.objects.get(id=request.user.id)
         form = ProfileForm(
