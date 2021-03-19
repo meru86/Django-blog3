@@ -112,8 +112,9 @@ a:hover {
     gap: 16px;
 }
 
+
 .form_wrap-2 {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);  /* 幅が2等分された小要素が横に並ぶ(grid-template-columns: 1fr 1fr; と同義) */
 }
 
 .form-control:focus {
