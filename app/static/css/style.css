@@ -66,7 +66,7 @@ a {
     color: black;
 }
 
-a:hober {
+a:hover {
     text-decoration: none;
     color: orange;
 }
@@ -75,7 +75,7 @@ a:hober {
     width: 700px;
     border: 0;
     border-radius: 1rem;
-    box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.1));
+    box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.1);
 }
 
 .button {
@@ -100,6 +100,7 @@ a:hober {
     width: 200px;
     padding: 16px 24px;
     text-align: left;
+    background: #F1F5FA;
 }
 
 .profile_table .data {
@@ -117,4 +118,8 @@ a:hober {
 
 .form-control:focus {
     box-shadow: none;
+}
+
+.form-control {
+    margin: 16px 24px;
 }
